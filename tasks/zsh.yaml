@@ -1,0 +1,12 @@
+- name: Install zsh
+  ansible.builtin.package:
+    name: zsh
+    state: present
+- name: Set zsh as Shell
+  shell: chsh -s $(which zsh)
+- name: Install Oh My Zsh
+  shell: curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh
+- name: Install Zsh Auto Completions
+  shell: git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+
+

@@ -1,0 +1,9 @@
+- name: Install Neovim
+  ansible.builtin.package:
+    name: neovim
+    state: present
+- name: Install ripgrep
+  ansible.builtin.package:
+    name: ripgrep
+    state: present
+
