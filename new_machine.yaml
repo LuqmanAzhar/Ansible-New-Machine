@@ -1,6 +1,6 @@
 ---
 - name: New Machine Setup
-- hosts: localhost
+  hosts: localhost
   become: true
   tasks:
     - ansible.builtin.include_tasks: tasks/zsh.yaml
