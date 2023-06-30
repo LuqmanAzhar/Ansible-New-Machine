@@ -6,4 +6,3 @@
   ansible.builtin.package:
     name: ripgrep
     state: present
-

@@ -1,9 +1,8 @@
 ---
+- name: New Machine Setup
 - hosts: localhost
   become: true
   tasks:
-    - include: tasks/zsh.yaml
-    - include: tasks/neovim.yaml
-    - include: tasks/dotfiles.yaml
-      
-        
+    - ansible.builtin.include_tasks: tasks/zsh.yaml
+    - ansible.builtin.include_tasks: tasks/neovim.yaml
+    - ansible.builtin.include_tasks: tasks/dotfiles.yaml

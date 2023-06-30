@@ -1,17 +1,20 @@
 - name: Create Directory for Dotfiles
-  file:
+  ansible.builtin.file:
     path: ~/dotfiles
     state: directory
+    mode: u+rwx
 - name: Clone Dotfiles
-  git:
-    repo: https://github.com/LuqmanAzhar/dotfiles.git 
+  ansible.builtin.git:
+    repo: https://github.com/LuqmanAzhar/dotfiles.git
     dest: ~/dotfiles
-    clone: yes
-    update: yes
+    clone: true
+    update: true
 - name: Set install to Exectuable
   ansible.builtin.file:
     path: ~/dotfiles/install
     state: file
     mode: u+rwx
 - name: Running Install Script
-  ansible.builtin.shell: ~/dotfiles/install
+  ansible.builtin.shell:
+    chdir: ~/dotfiles
+    cmd: ./install
